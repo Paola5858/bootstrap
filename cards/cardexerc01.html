@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
   <style>
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     body { background-color: #0e0e0e; font-family: 'Syne', sans-serif; padding: 3rem 0; }
     .card {
       background-color: #1a0a1e;
@@ -15,39 +17,71 @@
       border-radius: 10px;
       color: #f0f0f0;
       overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.6s ease;
+    }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 45px rgba(255,45,120,0.35); }
+    .card-img-wrapper { position: relative; }
+    .badge-status {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,45,120,0.95);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 700;
+      animation: badgePulse 2s ease infinite;
+      box-shadow: 0 2px 8px rgba(255,45,120,0.4);
     }
     .card-img-top { object-fit: cover; height: 220px; }
-    .card-body { padding: 1.2rem 1.4rem 1rem; }
-    .card-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 0.1rem; }
+    .card-body { padding: 1.4rem 1.6rem 1.2rem; }
+    .card-title { font-weight: 800; font-size: 1.15rem; margin-bottom: 0.2rem; letter-spacing: -0.02em; }
     .card-subtitle {
       font-family: 'Space Mono', monospace;
-      font-size: 0.68rem;
-      color: rgba(240,240,240,0.4);
-      margin-bottom: 1rem;
+      font-size: 0.7rem;
+      color: rgba(240,240,240,0.5);
+      margin-bottom: 1.2rem;
     }
+    .social-icons { display: flex; gap: 0.8rem; }
     .social-icons a {
       color: rgba(240,240,240,0.5);
-      font-size: 1.2rem;
-      margin-right: 0.6rem;
-      transition: color 0.2s;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
       text-decoration: none;
+      cursor: pointer;
     }
-    .social-icons a:hover { color: #ff2d78; }
+    .social-icons a:hover { transform: translateY(-3px); }
+    .social-icons a.facebook:hover { color: #1877f2; }
+    .social-icons a.twitter:hover { color: #000; }
+    .social-icons a.linkedin:hover { color: #0a66c2; }
+    .social-icons a.instagram:hover { color: #e4405f; }
   </style>
 </head>
 <body>
   <div class="container py-5">
-    <div class="card col-3">
-      <!-- Troque o src abaixo pela URL da sua foto se quiser -->
-      <img src="https://picsum.photos/300/220?random=99" class="card-img-top" alt="foto de perfil"/>
-      <div class="card-body">
-        <h5 class="card-title">Paola</h5>
-        <h6 class="card-subtitle">Dev em formação · SENAI</h6>
-        <div class="social-icons">
-          <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-twitter"></i></a>
-          <a href="#"><i class="bi bi-linkedin"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card">
+          <div class="card-img-wrapper">
+            <img src="https://placehold.co/300x220/1a0a1e/ff2d78?text=Perfil" class="card-img-top" alt="foto de perfil"/>
+            <span class="badge-status">SENAI 2025</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Seu Nome Aqui</h5>
+            <h6 class="card-subtitle">Estudante de Desenvolvimento de Sistemas · SENAI</h6>
+            <div class="social-icons">
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
