@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>cardexerc02</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono&display=swap" rel="stylesheet"/>
+  <style>
+    body { background-color: #0e0e0e; font-family: 'Syne', sans-serif; padding: 3rem 0; }
+    .card {
+      background-color: #111118;
+      border: 1px solid rgba(255,230,0,0.15);
+      border-radius: 10px;
+      color: #f0f0f0;
+      height: 100%;
+    }
+    .card-img-top { height: 180px; object-fit: cover; border-radius: 10px 10px 0 0; }
+    .card-body { padding: 1.2rem; }
+    .card-title { font-weight: 800; font-size: 0.95rem; color: #ffe600; margin-bottom: 0.5rem; }
+    .card-text { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: rgba(240,240,240,0.45); line-height: 1.8; margin-bottom: 1rem; }
+    .btn-mcds {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #ffe600;
+      color: #000;
+      border: none;
+      border-radius: 100px;
+      padding: 0.45rem 1.5rem;
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+    .btn-mcds:hover { background: #d4c000; color: #000; }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row row-cols-2 g-4">
+
+      <div class="col">
+        <div class="card">
+          <img src="https://picsum.photos/400/180?random=51" class="card-img-top" alt="McFlurry Ovomaltine"/>
+          <div class="card-body text-center">
+            <h5 class="card-title">Crocante e cremoso? É o McFlurry Ovomaltine Rocks Mesclado.</h5>
+            <p class="card-text">A crocância do novo Ovomaltine Rocks Mesclado com a cremosidade inesquecível do McFlurry. Já deu vontade de provar, né?</p>
+            <a href="#" class="btn-mcds">Vem provar.</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <img src="https://picsum.photos/400/180?random=52" class="card-img-top" alt="McFlurry Oreo"/>
+          <div class="card-body text-center">
+            <h5 class="card-title">McFlurry Oreo voltou para o Méqui!</h5>
+            <p class="card-text">Ele voltou com tudo e dando show. Extremamente biscoiteiro e esperando por você. Vem matar a saudade da sua sobremesa favorita.</p>
+            <a href="#" class="btn-mcds">Vem provar.</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
