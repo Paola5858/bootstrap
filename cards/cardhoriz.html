@@ -10,7 +10,7 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     body { background-color: #0e0e0e; font-family: 'Syne', sans-serif; padding: 3rem 0; }
     .card {
-      background-color: #1a0a1e;
+      background-color: #0d1a18;
       border: 1px solid rgba(0,245,212,0.2);
       border-radius: 10px;
       color: #f0f0f0;
@@ -18,11 +18,11 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeIn 0.6s ease;
     }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,245,212,0.3); }
-    .card-title { font-weight: 800; font-size: 1.25rem; color: #00f5d4; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-    .card-text { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: rgba(240,240,240,0.5); line-height: 1.9; margin-bottom: 0.8rem; }
-    .card-body { padding: 1.8rem; }
-    .text-muted { color: rgba(240,240,240,0.3) !important; font-family: 'Space Mono', monospace; font-size: 0.65rem; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,245,212,0.25); }
+    .card-title { font-weight: 800; font-size: 1.15rem; color: #00f5d4; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .card-text { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: rgba(240,240,240,0.5); line-height: 1.9; }
+    .text-muted { color: rgba(0,245,212,0.35) !important; font-family: 'Space Mono', monospace; font-size: 0.65rem; }
+    .img-side { object-fit: cover; height: 100%; min-height: 160px; }
   </style>
 </head>
 <body>
@@ -32,16 +32,16 @@
         <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&h=200&fit=crop" class="img-fluid rounded-start h-100" alt="imagem" style="object-fit:cover;"/>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Desenvolvimento Moderno</h5>
-            <h6 class="card-subtitle mb-3" style="font-family: 'Space Mono', monospace; font-size: 0.7rem; color: rgba(0,245,212,0.6);">Stack completa · Full-stack</h6>
-            <p class="card-text">Construindo aplicações web escaláveis com as melhores práticas do mercado.</p>
-            <p class="card-text"><small class="text-muted">// última atualização agora</small></p>
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=200&h=200&fit=crop" class="img-fluid rounded-start img-side" alt="arte digital"/>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">arte & código</h5>
+                <p class="card-text">design não é decoração. é a diferença entre um site que as pessoas usam e um que elas fecham em 3 segundos.</p>
+                <p class="card-text"><small class="text-muted">// Paola Machado · SENAI 2025</small></p>
+              </div>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </div>

@@ -17,13 +17,11 @@
       animation: fadeIn 0.6s ease;
     }
     .card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,100,255,0.4); }
-    .card.bg-primary {
-      background: linear-gradient(145deg, #0040ff, #0020aa) !important;
-      border: 1px solid rgba(0,100,255,0.4);
-    }
+    .card.bg-primary { background: linear-gradient(145deg, #0040ff, #0020aa) !important; }
+    .card-img-top { height: 200px; object-fit: cover; }
     .card-title { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; }
-    .card-subtitle { font-family: 'Space Mono', monospace; font-size: 0.7rem; opacity: 0.7; margin-bottom: 1rem; }
-    .card-text { font-family: 'Space Mono', monospace; font-size: 0.75rem; opacity: 0.75; line-height: 1.9; }
+    .card-subtitle { font-family: 'Space Mono', monospace; font-size: 0.7rem; opacity: 0.65; margin-bottom: 1rem; }
+    .card-text { font-family: 'Space Mono', monospace; font-size: 0.75rem; opacity: 0.7; line-height: 1.9; }
     .btn-outline-light {
       font-family: 'Space Mono', monospace;
       font-size: 0.65rem;
@@ -33,7 +31,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    .btn-outline-light:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
+    .btn-outline-light:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,255,255,0.25); }
   </style>
 </head>
 <body>
@@ -41,14 +39,14 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card text-white bg-primary">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop" class="card-img-top" alt="imagem"/>
-      <div class="card-body">
-        <h5 class="card-title">Título do Card</h5>
-        <h6 class="card-subtitle">Subtítulo</h6>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, sit.</p>
-        <a href="#" class="btn btn-outline-light">Acessar!</a>
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=200&fit=crop" class="card-img-top" alt="tecnologia"/>
+          <div class="card-body">
+            <h5 class="card-title">tecnologia</h5>
+            <h6 class="card-subtitle">o que move tudo</h6>
+            <p class="card-text">cada linha de código é uma decisão. cada decisão vira experiência. cada experiência vira portfólio.</p>
+            <a href="#" class="btn btn-outline-light">saber mais</a>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>

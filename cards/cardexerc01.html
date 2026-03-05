@@ -39,18 +39,25 @@
       animation: badgePulse 2s ease infinite;
       box-shadow: 0 2px 8px rgba(255,45,120,0.4);
     }
-    .card-img-top { object-fit: cover; height: 220px; }
+    .card-img-top { object-fit: cover; height: 220px; width: 100%; }
     .card-body { padding: 1.4rem 1.6rem 1.2rem; }
-    .card-title { font-weight: 800; font-size: 1.15rem; margin-bottom: 0.2rem; letter-spacing: -0.02em; }
+    .card-title { font-weight: 800; font-size: 1.15rem; margin-bottom: 0.1rem; letter-spacing: -0.02em; }
     .card-subtitle {
       font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: rgba(240,240,240,0.45);
+      margin-bottom: 0.6rem;
+    }
+    .bio {
+      font-family: 'Space Mono', monospace;
       font-size: 0.7rem;
-      color: rgba(240,240,240,0.5);
-      margin-bottom: 1.2rem;
+      color: rgba(240,240,240,0.4);
+      line-height: 1.7;
+      margin-bottom: 1.1rem;
     }
     .social-icons { display: flex; gap: 0.8rem; }
     .social-icons a {
-      color: rgba(240,240,240,0.5);
+      color: rgba(240,240,240,0.45);
       font-size: 1.3rem;
       transition: all 0.3s ease;
       text-decoration: none;
@@ -58,7 +65,7 @@
     }
     .social-icons a:hover { transform: translateY(-3px); }
     .social-icons a.facebook:hover { color: #1877f2; }
-    .social-icons a.twitter:hover { color: #000; }
+    .social-icons a.twitter:hover { color: #e0e0e0; }
     .social-icons a.linkedin:hover { color: #0a66c2; }
     .social-icons a.instagram:hover { color: #e4405f; }
   </style>
@@ -69,12 +76,13 @@
       <div class="col-12 col-sm-8 col-md-6 col-lg-4">
         <div class="card">
           <div class="card-img-wrapper">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=220&fit=crop" class="card-img-top" alt="foto de perfil"/>
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=220&fit=crop" class="card-img-top" alt="foto de perfil"/>
             <span class="badge-status">SENAI 2025</span>
           </div>
           <div class="card-body">
-            <h5 class="card-title">Paola Silva</h5>
-            <h6 class="card-subtitle">Estudante de Desenvolvimento de Sistemas · SENAI</h6>
+            <h5 class="card-title">Paola Machado</h5>
+            <h6 class="card-subtitle">dev em formação · front-end · SENAI</h6>
+            <p class="bio">apaixonada por CSS, estética e fazer a internet mais bonita. quando não tô codando, tô no pinterest salvando referências.</p>
             <div class="social-icons">
               <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
