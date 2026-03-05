@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav 05 - Y2K Complete</title>
+    
+    <!-- Bootstrap 5.1 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: #0e0e0e;
+            font-family: 'Syne', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+        }
+        
+        /* navbar - classe obrigatória do Bootstrap para estrutura da barra de navegação */
+        .navbar {
+            background: #111118 !important;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #ff006e, #8b5cf6, #00f5ff) 1;
+            box-shadow: 0 4px 30px rgba(139, 92, 246, 0.3);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            box-shadow: 0 6px 40px rgba(139, 92, 246, 0.5);
+            padding: 0.8rem 0;
+        }
+        
+        /* navbar-brand - classe obrigatória do Bootstrap para logo/marca */
+        .navbar-brand {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #ff006e, #8b5cf6, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            filter: brightness(1.3);
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        .navbar-brand i {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover i {
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        /* navbar-text - classe obrigatória do Bootstrap para texto adicional na navbar */
+        .navbar-text {
+            font-family: 'Space Mono', monospace;
+            color: #8b5cf6 !important;
+            font-size: 0.8rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid #8b5cf6;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            margin-left: 1rem;
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(139, 92, 246, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.6); }
+        }
+        
+        /* navbar-nav - classe obrigatória do Bootstrap para lista de navegação */
+        .navbar-nav {
+            gap: 0.3rem;
+        }
+        
+        /* nav-link - classe obrigatória do Bootstrap para links de navegação */
+        .nav-link {
+            font-family: 'Space Mono', monospace;
+            color: #b8b8b8 !important;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover {
+            color: #8b5cf6 !important;
+            background: rgba(139, 92, 246, 0.05);
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        /* active - classe obrigatória do Bootstrap para indicar página atual */
+        .nav-link.active {
+            color: #ff006e !important;
+            background: rgba(255, 0, 110, 0.1);
+            text-shadow: 0 0 15px rgba(255, 0, 110, 0.8);
+            border: 1px solid rgba(255, 0, 110, 0.3);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 70%;
+            height: 2px;
+            background: #ff006e;
+            transform: translateX(-50%);
+            animation: activeGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes activeGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(255, 0, 110, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(255, 0, 110, 0.8); }
+        }
+        
+        .nav-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.15);
+        }
+        
+        /* dropdown - classe obrigatória do Bootstrap para menu suspenso */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            animation: dropdownSlide 0.3s ease;
+        }
+        
+        /* dropdown-toggle - classe obrigatória do Bootstrap para botão dropdown */
+        .dropdown-toggle::after {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+            vertical-align: middle;
+        }
+        
+        .dropdown:hover .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        /* dropdown-menu - classe obrigatória do Bootstrap para menu suspenso */
+        .dropdown-menu {
+            background: linear-gradient(135deg, #1a1a24, #111118);
+            border: 2px solid #8b5cf6;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.5);
+            margin-top: 0.5rem !important;
+            border-radius: 15px;
+            padding: 0.5rem;
+        }
+        
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* dropdown-item - classe obrigatória do Bootstrap para itens do dropdown */
+        .dropdown-item {
+            font-family: 'Space Mono', monospace;
+            color: #b8b8b8 !important;
+            padding: 0.8rem 1.5rem;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            margin: 0.2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 0;
+            background: linear-gradient(180deg, #ff006e, #8b5cf6, #00f5ff);
+            transition: height 0.3s ease;
+        }
+        
+        .dropdown-item:hover::before {
+            height: 100%;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(139, 92, 246, 0.15);
+            color: #8b5cf6 !important;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+            transform: translateX(8px);
+            padding-left: 2rem;
+        }
+        
+        .dropdown-item i {
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown-item:hover i {
+            transform: scale(1.2);
+        }
+        
+        .dropdown-divider {
+            border-color: rgba(139, 92, 246, 0.3);
+            margin: 0.5rem 1rem;
+        }
+        
+        /* navbar-toggler - classe obrigatória do Bootstrap para botão responsivo */
+        .navbar-toggler {
+            border: 2px solid #8b5cf6;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 0.5rem 0.75rem;
+        }
+        
+        .navbar-toggler:hover {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+            background: rgba(139, 92, 246, 0.1);
+        }
+        
+        .navbar-toggler[aria-expanded="true"] {
+            transform: rotate(90deg);
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.8);
+            outline: none;
+        }
+        
+        /* navbar-toggler-icon - classe obrigatória do Bootstrap para ícone hambúrguer */
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238b5cf6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* collapse navbar-collapse - classes obrigatórias do Bootstrap */
+        .navbar-collapse {
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-collapse.collapsing {
+            transition: height 0.35s ease;
+        }
+        
+        .navbar-collapse.show {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .bi {
+            margin-right: 0.5rem;
+        }
+        
+        .content {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .content h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #ff006e, #8b5cf6, #00f5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+        
+        .content p {
+            font-family: 'Space Mono', monospace;
+            color: #b8b8b8;
+            font-size: 1.1rem;
+        }
+        
+        .badge-custom {
+            background: linear-gradient(135deg, #ff006e, #8b5cf6);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- navbar navbar-expand-lg - classes obrigatórias -->
+    <!-- navbar-expand-lg: define breakpoint large para expansão -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            
+            <!-- navbar-brand - classe obrigatória -->
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-gem fs-3"></i>
+                ULTRA
+            </a>
+            
+            <!-- navbar-text - classe obrigatória -->
+            <span class="navbar-text d-none d-xl-block">
+                <i class="bi bi-shield-fill-check"></i>
+                PREMIUM
+            </span>
+            
+            <!-- navbar-toggler - classe obrigatória -->
+            <!-- data-bs-toggle - atributo obrigatório para ativar collapse -->
+            <!-- data-bs-target - atributo obrigatório para definir alvo -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav05">
+                <!-- navbar-toggler-icon - classe obrigatória -->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- collapse navbar-collapse - classes obrigatórias -->
+            <div class="collapse navbar-collapse" id="navbarNav05">
+                
+                <!-- navbar-nav - classe obrigatória -->
+                <ul class="navbar-nav ms-auto align-items-center">
+                    
+                    <!-- nav-link active - classes obrigatórias -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="bi bi-house-heart-fill fs-5"></i>
+                            Home
+                        </a>
+                    </li>
+                    
+                    <!-- dropdown - classe obrigatória -->
+                    <li class="nav-item dropdown">
+                        <!-- dropdown-toggle - classe obrigatória -->
+                        <!-- data-bs-toggle - atributo obrigatório -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-collection-fill fs-5"></i>
+                            Categorias
+                        </a>
+                        <!-- dropdown-menu - classe obrigatória -->
+                        <ul class="dropdown-menu">
+                            <!-- dropdown-item - classe obrigatória -->
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-controller"></i> Games</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-music-note-beamed"></i> Música</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-film"></i> Filmes</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-fire text-danger"></i> Trending</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- dropdown - classe obrigatória -->
+                    <li class="nav-item dropdown">
+                        <!-- dropdown-toggle - classe obrigatória -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-shop fs-5"></i>
+                            Loja
+                        </a>
+                        <!-- dropdown-menu - classe obrigatória -->
+                        <ul class="dropdown-menu">
+                            <!-- dropdown-item - classe obrigatória -->
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-bag-heart"></i> Produtos</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-percent"></i> Promoções</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gift"></i> Gift Cards</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- nav-link - classe obrigatória -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-chat-square-heart-fill fs-5"></i>
+                            Suporte
+                        </a>
+                    </li>
+                    
+                    <!-- dropdown - classe obrigatória -->
+                    <li class="nav-item dropdown">
+                        <!-- dropdown-toggle - classe obrigatória -->
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-fill-gear fs-5"></i>
+                            Perfil
+                        </a>
+                        <!-- dropdown-menu - classe obrigatória -->
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <!-- dropdown-item - classe obrigatória -->
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-badge"></i> Minha Conta</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Configurações</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-bell-fill"></i> Notificações</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <h1>NAV 05</h1>
+        <p>Navbar completa com todas as classes obrigatórias</p>
+        <div class="mt-4">
+            <span class="badge-custom"><i class="bi bi-check-circle-fill"></i> Responsivo</span>
+            <span class="badge-custom"><i class="bi bi-check-circle-fill"></i> Dropdowns</span>
+            <span class="badge-custom"><i class="bi bi-check-circle-fill"></i> Y2K Style</span>
+        </div>
+    </div>
+    
+    <!-- Bootstrap 5.1 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
+</body>
+</html>
